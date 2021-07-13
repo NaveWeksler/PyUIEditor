@@ -5,8 +5,8 @@ class Label(GuiElement):
 	######## Constructor ########
 	#############################
 
-	def __init__(self, x, y, text, text_size, text_color, font, parent):
-		super().__init__(x, y, 0, 0, parent)
+	def __init__(self, x, y, text, text_size, text_color, font):
+		super().__init__(x, y, 0, 0)
 		self._font = font
 		self._text = text
 		self._text_color = text_color
@@ -64,5 +64,4 @@ class Label(GuiElement):
 		self._height =  self._render_text.get_height()
 
 	def render(self, window):
-		GuiElement.render(self, window)
-		window._window.blit(self._render_text, (self.reletive_x, self.reletive_y))
+		window.blit(self._render_text, (self.x, self.y))

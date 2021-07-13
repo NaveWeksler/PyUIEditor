@@ -6,7 +6,7 @@ class Window(GuiElement):
 	#############################
 
 	def __init__(self, width, height, title):
-		super().__init__(0, 0, width, height, None)
+		super().__init__(0, 0, width, height)
 		self._open = True
 		self._clock = pygame.time.Clock()
 		self._window = pygame.display.set_mode((width, height))
