@@ -1,6 +1,29 @@
-const animText = $("#description");
+/*
+//REMOVE ON USE ---------------
+window.onbeforeunload = function () {
+	var scrollPos;
+	if (typeof window.pageYOffset != 'undefined') {
+		scrollPos = window.pageYOffset;
+	}
+	else if (typeof document.compatMode != 'undefined' && document.compatMode != 'BackCompat') {
+		scrollPos = document.documentElement.scrollTop;
+	}
+	else if (typeof document.body != 'undefined') {
+		scrollPos = document.body.scrollTop;
+	}
+	document.cookie = "scrollTop=" + scrollPos;
+}
+window.onload = function () {
+	if (document.cookie.match(/scrollTop=([^;]+)(;|$)/) != null) {
+		var arr = document.cookie.match(/scrollTop=([^;]+)(;|$)/);
+		document.documentElement.scrollTop = parseInt(arr[1]);
+		document.body.scrollTop = parseInt(arr[1]);
+	}
+}
+// -------------------------
+*/
 
-console.log(animText.text())
+const animText = $("#description");
 
 function fallDownText(animElem){
 	let text = animElem.text();
@@ -44,5 +67,5 @@ function setupTextFall(animElem) {
 	return animElem;
 }
 
-
+document.onr
 setTimeout(() => {fallDownText(animText)}, 100);

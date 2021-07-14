@@ -1,11 +1,26 @@
+import pygame
 import gui
+import random
 
-window = gui.Window(800, 450, "App")
-label = gui.Label(200, 200, "Text", 30, (240, 20, 20), "comicsansms", window)
-label.text_color = (20, 20, 240)
-label.text_size = 20
+window = pygame.display.set_mode((800, 450))
+pygame.display.set_caption("App")
+clock = pygame.time.Clock()
 
-while window.open:
-	window.update()
-	label.render(window)
-	window.render()
+button = gui.Button(200, 200, 265, 40, "Text", 30, (20, 20, 20), "arial", (180, 180, 180), (220, 220, 200), (20, 20, 20), 1)
+
+while True:
+	events = pygame.event.get()
+	for event in events:
+		if event.type == pygame.QUIT:
+			exit()
+
+	window.fill((240, 240, 240))
+	gui.update(window, events)
+
+	if button.clicked:
+		button.x = random.randint(0, window.get_width() - button.width)
+		button.y = random.randint(0, window.get_height() - button.height)
+
+	button.render(window)
+	pygame.display.update()
+	clock.tick(60)

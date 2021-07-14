@@ -42,6 +42,7 @@
 	background: -webkit-linear-gradient(36deg, rgba(71,133,255,1) 0%, rgba(80,137,242,1) 45%,
 	 rgba(80,137,242,1) 52%, rgba(242,210,0,1) 54%, rgba(242,210,0,1) 100%);
 	-webkit-background-clip: text;
+	background-clip: text;
 	-webkit-text-fill-color: transparent;
 }
 
@@ -78,7 +79,7 @@
 #example_image{
 	--whiteTopPos: 0%;
 	position: absolute;
-	top: calc(10% + 80px);
+	top: 12%;
 	left: 0;
 	height: 55%;
 	width: 100%;
@@ -101,14 +102,14 @@
 }
 #bottom_sep{
 	background-color: inherit;
-	bottom: var(--whiteTopPos);
+	top: 80%;
 }
 .bluebg{
 	position: absolute;
 	top: calc(var(--whiteTopPos));
 	left: 0;
 	width: 100%;
-	height: calc(100% - var(--whiteTopPos) * 2);
+	height: calc(100% - var(--whiteTopPos) - 20%);
 	background-color: rgb(0, 130, 255);
 	z-index: 0;
 }
@@ -119,7 +120,7 @@
 	left: 0px;
 	bottom: 20px;
 	width: 100%;
-	height: 600px;
+	height: 30%;
 }
 .dark #main_menu > div > span{
 	background-color: rgba(255,255,255, 0.1);
@@ -129,20 +130,11 @@
 	background-color: rgba(255,255,255, 0.3);
 }
 .light #main_menu > div > span{
-	background-color: rgba(0,0,0 0.5);
+	background-color: rgba(0,0,0, 0.1);
 	border-color: #00ABFF;
 }
 .light #main_menu > div > span:hover{
-	background-color: rgba(255,255,255, 0.7);
-}
-
-#main_menu > div > span{
-	border-radius: 10px;
-	border: 1px solid;
-	width: 280px;
-	height: 280px;
-	justify-content: center;
-	align-items: center;
+	background-color: rgba(0,0,0, 0.3);
 }
 .type{
 	user-select: none;
@@ -163,6 +155,27 @@
 	justify-content: center;
 	align-items: center;
 }
+.thememain label{
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	top: 20px;
+	background-color: transparent;
+}
+.thememain span.theme_set{
+	position: absolute;
+	top: 20px;
+	font-size: 20px;
+	background-color: transparent;
+}
+.thememain span.theme_set:first-child{
+	left: 5px;
+}
+.thememain span.theme_set:last-child{
+	left: calc(100% - 5px);
+	transform: translateX(calc( -100% - 5px));
+	
+}
 
 .content{
 	position: absolute;
@@ -172,15 +185,6 @@
 	width: 100%;
 	background-color: transparent;
 }
-
-#main_menu span > div{
-	position: relative;
-	bottom: 0px;
-	width: 280px;
-	height: 280px;
-	background-color: transparent;
-}
-
 #main_menu > div{
 	position: absolute;
 	left: 0;
@@ -192,20 +196,51 @@
 	justify-content: center;
 
 }
+#main_menu span > div{
+	position: relative;
+	bottom: 0px;
+	width: auto;
+	height: auto;
+	background-color: transparent;
+}
+#main_menu > div > span{
+	border-radius: 10px;
+	border: 2px solid;
+	
+	height: 100%;
+	justify-content: center;
+	align-items: center;
+}
 #main_menu #top_options{
 	top: 0;
 	height: calc(50% - 10px);
-	grid-template-columns: repeat(2, 280px);
+	grid-template-columns: repeat(2, 25%);
 	
 }
 #main_menu #bottom_options{
 	top: calc(50% + 10px);
 	height: calc(50% - 10px);
-	grid-template-columns: repeat(3, 280px);
+	grid-template-columns: repeat(3, 25%);
 }
 
 
 
+/* w3schools round input box design */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 24px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
 .slider {
   position: absolute;
   cursor: pointer;
@@ -221,8 +256,8 @@
 .slider:before {
   position: absolute;
   content: "";
-  height: 26px;
-  width: 26px;
+  height: 16px;
+  width: 16px;
   left: 4px;
   bottom: 4px;
   background-color: white;

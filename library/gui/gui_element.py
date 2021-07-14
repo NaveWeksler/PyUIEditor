@@ -1,4 +1,4 @@
-import pygame
+from gui.pygame_input import *
 
 class GuiElement:
 	#############################
@@ -10,12 +10,11 @@ class GuiElement:
 			raise TypeError("Cannot create an instance of GuiElement")
 		return object.__new__(cls)
 
-	def __init__(self, x, y, width, height, parent):
+	def __init__(self, x, y, width, height):
 		self._x = x
 		self._y = y
 		self._width = width
 		self._height = height
-		self._parent = parent
 
 	############################
 	######## Properties ########
@@ -30,20 +29,20 @@ class GuiElement:
 		return self._y
 
 	@property
-	def reletive_x(self):
-		return self.x + self._parent.x
-
-	@property
-	def reletive_y(self):
-		return self.y + self._parent.y
-
-	@property
 	def width(self):
 		return self._width
 
 	@property
 	def height(self):
 		return self._height
+
+	@property
+	def hovered(self):
+		return self.x < Mouse.x < self.x + self.width and self.y < Mouse.y < self.y + self.height
+
+	@property
+	def clicked(self):
+		return Mouse.left.released and self.hovered
 	
 	#########################
 	######## Methods ########

@@ -1,12 +1,11 @@
-from gui.gui_element import *
+import pygame
 
-class Label(GuiElement):
+class TextBlock:
 	#############################
 	######## Constructor ########
 	#############################
 
-	def __init__(self, x, y, text, text_size, text_color, font):
-		super().__init__(x, y, 0, 0)
+	def __init__(self, text, text_size, text_color, font):
 		self._font = font
 		self._text = text
 		self._text_color = text_color
@@ -32,36 +31,39 @@ class Label(GuiElement):
 	def font(self):
 		return self._font
 
+	@property
+	def width(self):
+		return self._render_text.get_width()
+
+	@property
+	def height(self):
+		return self._render_text.get_height()
+	
 	@text.setter
 	def text(self, value):
 		self._text = value
-		self._update_text()
+		self._render_text = self._render_font.render(self.text, True, self.text_color)
 
 	@text_size.setter
 	def text_size(self, value):
 		self._text_size = value
 		self._render_font = pygame.font.SysFont(self.font, self.text_size)
-		self._update_text()
+		self._render_text = self._render_font.render(self.text, True, self.text_color)
 
 	@text_color.setter
 	def text_color(self, value):
 		self._text_color = value
-		self._update_text()
+		self._render_text = self._render_font.render(self.text, True, self.text_color)
 
 	@font.setter
 	def font(self, value):
 		self._font = value
 		self._render_font = pygame.font.SysFont(self.font, self.text_size)
-		self._update_text()
+		self._render_text = self._render_font.render(self.text, True, self.text_color)
 
 	#########################
 	######## Methods ########
 	#########################
 
-	def _update_text(self):
-		self._render_text = self._render_font.render(self.text, True, self.text_color)
-		self._width = self._render_text.get_width()
-		self._height =  self._render_text.get_height()
-
-	def render(self, window):
-		window.blit(self._render_text, (self.x, self.y))
+	def render(self, window, x, y):
+		window.blit(self._render_text, (x, y))
