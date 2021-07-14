@@ -1,4 +1,4 @@
-import pygame
+from gui.pygame_input import *
 
 class GuiElement:
 	#############################
@@ -35,6 +35,14 @@ class GuiElement:
 	@property
 	def height(self):
 		return self._height
+
+	@property
+	def hovered(self):
+		return self.x < Mouse.x < self.x + self.width and self.y < Mouse.y < self.y + self.height
+
+	@property
+	def clicked(self):
+		return Mouse.left.released and self.hovered
 	
 	#########################
 	######## Methods ########
