@@ -1,4 +1,4 @@
-/*
+
 //REMOVE ON USE ---------------
 window.onbeforeunload = function () {
 	var scrollPos;
@@ -21,7 +21,7 @@ window.onload = function () {
 	}
 }
 // -------------------------
-*/
+
 
 const animText = $("#description");
 
