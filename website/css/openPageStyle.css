@@ -122,12 +122,24 @@
 	background-color: transparent;
 	border-left: 1px dashed grey;
 }
+#example_svg{
+	position: absolute;
+	left: calc(20% + 5px);
+	width: calc(80% - 5px);
+	height: 100%;
+	background-color: transparent;
+	display: flex;
+  	align-items: center;
+}
+#example_svg svg{
+	background-color: transparent;
+}
 
 #properties{
 	width: auto;
+	max-width: 20%;
 	height: 100%;
 	position: absolute;
-	left: 0;
 	top: 0;
 	background-color: transparent;
 	

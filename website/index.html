@@ -40,6 +40,91 @@
 							<li></li>
 						</ul>
 					</div>
+					<div id="example_svg">
+						<svg width="100%" height="85%" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+							<style>
+								#fake_pygame_window_svg{
+									-webkit-filter: drop-shadow( 4px 4px 1px rgba(0, 0, 0, .1));
+									filter: drop-shadow( 4px 4px 4px rgba(0, 0, 0, .23));
+								}
+								.btns:hover{
+									fill: rgb(172, 172, 172);
+								}
+								#exit_btn_svg{
+									fill: white;
+								}
+								#exit_btn_sign_svg{
+									font-family: Arial, sans-serif;
+									font-weight: 300;
+									font-size: 3px;
+									fill: black;
+									pointer-events: none;
+								}
+								#exit_btn_svg:hover + #exit_btn_sign_svg{
+									fill: white;
+								}
+								#exit_btn_svg:hover{
+									fill: red;
+									opacity: 0.8;
+								} 
+						
+								.title_svg{
+									fill: black;
+									font-family: sans-serif;
+									font-size: 2.5px;
+								}
+								.hide_svg_text{
+									fill: white;
+									animation: typing 10s steps(30, end) infinite; /*, blink .75s step-end infinite*/
+									animation-fill-mode: both;
+									animation-delay: 2s;
+									/* stroke-width: 0.3; */
+								}
+								@keyframes typing {
+									0%{
+										width: 30px;
+										x: 23.5px;
+									}50%{
+										width: 0px;
+										x: 53.5px;
+										visibility: hidden;
+									}
+									100%{
+										width: 0px;
+										x: 53.5px;
+										visibility: hidden;
+									}
+								}
+								@keyframes blink {
+									from, to { 
+										stroke: transparent; 
+									}
+									50% { 
+										stroke: black; 
+									}
+								}
+							</style>
+						
+							<rect width="100" height="100" fill="none"/>
+							<rect id="fake_pygame_window_svg" x="17.05" y="0.05" width="65.9" height="99.9" fill="white" stroke="black" stroke-width="0.1"/>
+							<rect x="17.05" y="0.05" width="65.9" height="5.9" fill="white" stroke="black" stroke-width="0.1"/>
+							<rect class="btns" id="hide_btn_svg" x="62" y="0.2" width="7" height="5.5" fill="white"/>
+							<line style="pointer-events: none;" x1="64.4" y1="2.9" x2="66.5" y2="2.9" stroke="black" stroke-width="0.2"/>
+							<rect class="btns" id="size_btn_svg" x="69" y="0.2" width="7" height="5.5" fill="white"/>
+							<rect style="pointer-events: none;" x="71.4" y="2" width="2" height="2" stroke="black" stroke-width="0.25"/>
+							<rect id="exit_btn_svg" x="75.9" y="0.2" width="7" height="5.5" fill="#FF0101"/>
+							<text id="exit_btn_sign_svg" x="78.6" y="4">x</text>
+							<rect x="17.1" y="0.5" width="5" height="5" fill="url(#pattern0)"/>
+							<text x="23.5" y="4" class="title_svg">Your Title Goes Here!</text>
+							<rect x="23.75" y="0.2" width="30" height="5.5" class="hide_svg_text"></rect>
+							<defs>
+								<pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
+								<use xlink:href="#image0" transform="translate(-0.0625) scale(0.0416667)"/>
+								</pattern>
+								<image id="image0" width="27" height="24" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABsAAAAYCAYAAAALQIb7AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAKLSURBVEhL7ZVdSJNRGMe7Ei+UCstszjfJ6MYsIQhFRtEilrqMPjWWK9QSc8nCz9wEV+1mEOWscGSKzlmrKfhFW363sdxSNqyIKAwCKbr1/t/O45tN3Nobilf+4OG87wPn/M55OB+bsI5syIgd26NgaBCjt5WD4mw8n10kOjqK4l/8l6yzSYyxYSM80258cJ6C9Ukqyi9vhrkpEZODeXAPpEKSuXwSwQiWyY/FwDOmwo9fPymcLjsWvqRjzp2Mj7MDlJvxWkgYDkEyVp7xlxy8k41LMs+MFwufU+BzlS7lWPhHUrGLi+V7LkeQ7Jw8DvPTyfC7K2nAypoymB5eXZQ5i3G/+QHlv33/Sis9fngVsr6niSRjA004GjE1eoVW8Gmcw5jtAG7Vl5GMlZGVtt0YupSCZHdqdpLsjS2RVkMRGJSC/7Z1FWDet5++2URCIUi2ZWssjLqEv6JgYaBlE1mYk8Dv4KgdfJHD91yOIFmWJAM6vQ72rsBgfyQhwjOQBGsLB04U+rxFlKXs2Q3/+xkKTWM9hixpIUVeezpU13OxNyWG77mSiLLK6gr4Zl24cPE0TuTK8Hr0FfQGPcymk3jeJoVGLUZetgi1Wg1KykpRdK2E77mSiLJLygK8fecgWbb8KCZcQ7hZpUZbhwnWnk7UnT8DbX4Oqmqr0SyTUhuOiDJ2oO3DfSRxjPaju6sBjpFeWiHLKYuLSNh9ux46pYL+wyFogzDhjQoF2pszaYPMTaVhqCMJ/ZYjqNOoqXz5hYUoVZVjX9oqryuGJCMOrYag7c9vDHYkzC1SyGRZ2BYf/hJmCJYdOhiH9nsJeHQ3Ac8ec/TMsJvF0y+GVi2K+LwwBMvWgg3ZmrCOMuA3nnYQO11+DkwAAAAASUVORK5CYII="/>
+							</defs>
+						</svg>
+					</div>
 				</div>
 			</div>
 			<svg id="bottom_sep" class="gline_sep" preserveAspectRatio="none" width="100%" height="10%" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
