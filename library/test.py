@@ -3,6 +3,7 @@
 import pygame
 import gui
 import random
+from gui_elements import *
 
 window = pygame.display.set_mode((800, 450))
 pygame.display.set_caption("App")
@@ -11,8 +12,6 @@ clock = pygame.time.Clock()
 
 'testing event listeners'
 #####################################
-button = gui.Button(200, 200, 265, 40, "Text", 30, (20, 20, 20), "arial", (180, 180, 180), (220, 220, 200), (20, 20, 20), 1)
-
 @button.on_click
 def button_clicked():
 	button.x = random.randint(0, window.get_width() - button.width)
