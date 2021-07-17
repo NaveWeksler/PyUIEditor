@@ -10,7 +10,6 @@ clock = pygame.time.Clock()
 #####################################
 
 'testing event listeners'
-###### @Ofaspir try to add selector/instance of element .on_click() not genral button
 
 #####################################
 @button.on_click
