@@ -1,9 +1,8 @@
 'setup'
 #####################################
-import pygame
-import gui
-import random
 from gui_elements import *
+import pygame
+import random
 
 window = pygame.display.set_mode((800, 450))
 pygame.display.set_caption("App")
