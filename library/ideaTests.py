@@ -1,4 +1,3 @@
-
 def eventListener(str):
     print(str)
     # add to event loop here
@@ -9,7 +8,6 @@ def decorateEventListener(func):
         print("decorateEventListener")
         func("TYPE EVENT")
     return inner
-
 
 @eventListener("TYPE")
 def onTYPE(event):

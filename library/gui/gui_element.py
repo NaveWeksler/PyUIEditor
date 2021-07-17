@@ -1,4 +1,5 @@
 from gui.pygame_input import *
+from gui.core import *
 
 class GuiElement:
 	#############################
@@ -15,6 +16,7 @@ class GuiElement:
 		self._y = y
 		self._width = width
 		self._height = height
+		all_elements.append(self)
 
 	############################
 	######## Properties ########
@@ -43,6 +45,26 @@ class GuiElement:
 	@property
 	def clicked(self):
 		return Mouse.left.released and self.hovered
+
+	@property
+	def down(self):
+		return Mouse.left.down and self.hovered
+
+	############################
+	######## Decorators ########
+	############################
+
+	def on_click(self, func):
+		self._on_click = func
+		return func
+
+	def on_down(self, func):
+		self._on_down = func
+		return func
+
+	def on_hover(self, func):
+		self._on_hover = func
+		return func
 	
 	#########################
 	######## Methods ########
