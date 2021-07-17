@@ -38,7 +38,6 @@ while True:
 
 	window.fill((240, 240, 240))
 	gui.update(window, events)
-
 	pygame.display.update()
 	clock.tick(60)
 #####################################
