@@ -310,7 +310,76 @@
 	grid-template-columns: repeat(3, 35vh);
 }
 
+#projects_container{
+	width: 100vw;
+	height: 100vh;
+	position: absolute;
+	left: 0;
+	top: 0;
+	background-color: rgba(0,0,0, 0.5);
+	z-index: 0;
+	visibility: hidden;
+}
+#projects_container.active{
+	z-index: 5;
+	visibility: visible;
+}
 
+#projects{
+	background-color: var(--background-colorfill);
+	width: 90%;
+	height: 90%;
+	border-radius: 10px;
+}
+
+#title_projects{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 7%;
+	background-color: transparent;
+	border-bottom: 2px solid rgb(10, 150, 255);
+}
+
+#title_projects > span{
+	color: inherit;
+	font-family: Palatino, Verdana;
+	font-size: 30px;
+	letter-spacing: 1px;
+	left: 2%;
+}
+
+#title_projects > button{
+	color: inherit;
+	border: 2px solid rgb(10, 150, 255);
+	background-color: transparent;
+	position: absolute;
+	left: calc(100% - 10px);
+	top: 50%;
+	transform: translate(-100%, -50%);
+	width: 250px;
+	height: 65%;
+	border-radius: 50px;
+}
+.dark #title_projects > button{
+	background-color: white;
+	color: black;
+}
+.light #title_projects > button{
+	background-color: black;
+	color: white;
+}
+
+#title_projects > button > span{
+	background-color: transparent;
+	font-size: 17px;
+	color: inherit;
+	font-family: Verdana, Geneva, Tahoma;
+}
+#title_projects > button > span:first-child{
+	left: 7%;
+}
 
 /* w3schools round input box design */
 

@@ -13,6 +13,33 @@ $("#setThemeCheckBox")[0].addEventListener('change', e => {
 }, false);
 
 
+const projects = $("#projects_container");
+
+function openProjects(){
+    projects.addClass("active");
+    window.addEventListener("scroll", moveOnScroll, {passive: true});
+    document.addEventListener("keydown", keyDown, false);
+    moveOnScroll();
+}
+
+function keyDown (e) {
+    if(e.key === "Escape") {
+        closeProjects();
+    }
+}
+
+function moveOnScroll(){
+    projects.css({top: document.documentElement.scrollTop.toString() + "px"});
+}
+
+function closeProjects(){
+    projects.removeClass("active");
+    window.removeEventListener("scroll", moveOnScroll);
+    document.removeEventListener("keydown", keyDown)
+}
+
+openProjects();
+
 function setCookie(name,value,days) {
     var expires = "";
     if (days) {
