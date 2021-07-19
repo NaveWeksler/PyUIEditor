@@ -1,4 +1,11 @@
+'create elements - NOT RECOMMENDED'
+#####################################
+from generator import generate_elements
+generate_elements("gui_elements.py")
+#####################################
+
 'setup'
+
 #####################################
 from gui_elements import *
 import pygame

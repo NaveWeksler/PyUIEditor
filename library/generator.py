@@ -1,4 +1,5 @@
 import json
+from os.path import realpath
 
 def generate_element(name, params):
 	# gets the element's parameters from design.json
@@ -13,13 +14,17 @@ def generate_element(name, params):
 	params_str = params_str[:-1] + "\n"
 	return f"\n\n{name} = gui.{params['type']}({params_str})"
 
-def generate_elements():
+def generate_elements(gui_elems_name):
+	path = realpath(__file__).split("\\")
+	path.pop(-1)
+	path = '\\'.join(path)
+	print(path)
 	# opens design.json
-	with open("design.json", "r") as file:
+	with open(path + "\\design.json", "r") as file:
 		data = json.load(file)
 
 	# creates gui_elements.py
-	with open("gui_elements.py", "w") as file:
+	with open(path + "\\" + gui_elems_name, "w") as file:
 		file.write("import gui") # first line is the import statement
 
 		# creates all the elements declared in design.json	
@@ -28,4 +33,4 @@ def generate_elements():
 			file.write(text)
 
 if __name__ == "__main__":
-	generate_elements()
+	generate_elements("gui_elements.py")

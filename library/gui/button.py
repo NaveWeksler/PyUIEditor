@@ -103,7 +103,10 @@ class Button(GuiElement, TextBlock):
 		TextBlock.render(self, self.surface, text_x, text_y)
 
 		# border
-		pygame.draw.rect(self.surface, self.border_color, (0, 0, self.width - 1, self.height - 1), self.border_width)
+		pygame.draw.rect(self.surface, self.border_color[0], (0, 0, self.border_width[0], self.height)) # left
+		pygame.draw.rect(self.surface, self.border_color[1], (0, 0, self.width, self.border_width[1])) # top
+		pygame.draw.rect(self.surface, self.border_color[2], (self.width - self.border_width[2], 0, self.border_width[2], self.height)) # right
+		pygame.draw.rect(self.surface, self.border_color[3], (0, self.height - self.border_width[3], self.width, self.border_width[3])) # bottom
 
 		# draws the surface to the window
 		window.blit(self.surface, (self.x, self.y))
