@@ -12,5 +12,5 @@ button = gui.Button(
 	background_color=[200, 200, 200],
 	hover_color=[220, 220, 220],
 	border_color=[[255, 0, 0], [0, 255, 0], [0, 0, 255], [255, 255, 0]],
-	border_width=[5, 5, 5, 5]
+	border_width=[2, 5, 5, 5]
 )

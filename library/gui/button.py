@@ -22,71 +22,35 @@ class Button(GuiElement, TextBlock):
 			border_width
 		):
 		TextBlock.__init__(self, text, text_size, text_color, font)
-		GuiElement.__init__(self, x, y, width, height)
-
-		self._background_color = background_color
-		self._hover_color = hover_color
-		self._border_color = border_color
-		self._border_width = border_width
+		GuiElement.__init__(self, x, y, width, height, background_color, hover_color, border_width, border_color)
 		self._surface = pygame.Surface((self.width, self.height))
 
 	############################
 	######## Properties ########
 	############################
 
+	# surface
+	#####################################
 	@property
 	def surface(self):
 		return self._surface
+	#####################################
 
-	@property
-	def background_color(self):
-		return self._background_color
-
-	@property
-	def hover_color(self):
-		return self._hover_color
-	
-	@property
-	def border_color(self):
-		return self._border_color
-	
-	@property
-	def border_width(self):
-		return self._border_width
-	
-	@background_color.setter
-	def background_color(self, value):
-		self._background_color = value
-
-	@hover_color.setter
-	def hover_color(self, value):
-		self._hover_color = value
-
-	@border_color.setter
-	def border_color(self, value):
-		self._border_color = value
-
-	@border_width.setter
-	def border_width(self, value):
-		self._border_width = value
-
-	@GuiElement.x.setter
-	def x(self, value):
-		self._x = value
-
-	@GuiElement.y.setter
-	def y(self, value):
-		self._y = value
-
+	# width override
+	#####################################
 	@GuiElement.width.setter
 	def width(self, value):
 		self._width = value
 		self._surface = pygame.transform.scale(self.surface, (self.width, self.height))
+	#####################################
 
+	# height override
+	#####################################
 	@GuiElement.height.setter
 	def height(self, value):
 		self._height = value
 		self._surface = pygame.transform.scale(self.surface, (self.width, self.height))
+	#####################################
 	
 	#########################
 	######## Methods ########
@@ -103,10 +67,7 @@ class Button(GuiElement, TextBlock):
 		TextBlock.render(self, self.surface, text_x, text_y)
 
 		# border
-		pygame.draw.rect(self.surface, self.border_color[0], (0, 0, self.border_width[0], self.height)) # left
-		pygame.draw.rect(self.surface, self.border_color[1], (0, 0, self.width, self.border_width[1])) # top
-		pygame.draw.rect(self.surface, self.border_color[2], (self.width - self.border_width[2], 0, self.border_width[2], self.height)) # right
-		pygame.draw.rect(self.surface, self.border_color[3], (0, self.height - self.border_width[3], self.width, self.border_width[3])) # bottom
+		GuiElement.render(self, self.surface)
 
 		# draws the surface to the window
 		window.blit(self.surface, (self.x, self.y))
