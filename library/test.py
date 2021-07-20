@@ -22,7 +22,7 @@ def button_clicked():
 	button.x = random.randint(0, window.get_width() - button.width)
 	button.y = random.randint(0, window.get_height() - button.height)
 	button.width = random.randint(100, 200)
-	button.height = random.randint(40, 80)
+	button.height = random.randint(40, 100)
 
 @button.on_down
 def button_down():
