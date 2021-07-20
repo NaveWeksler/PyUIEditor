@@ -332,6 +332,65 @@
 	border-radius: 10px;
 }
 
+#projects_display{
+	position: absolute;
+	left: 2vh;
+	top: calc(7% + 2px + 2vh);
+	width: calc(100% - 4vh);
+	height: calc(93% - 2px - 4vh);
+
+	display: grid;
+	grid-template-columns: repeat(auto-fit, 30vh);
+	grid-template-rows: repeat(auto-fit, 25vh);
+	grid-gap: 2vh;
+}
+
+.project{
+	border: 2px solid rgb(10, 150, 255);
+	border-radius: 10px;
+	display: grid;
+	justify-content: center;
+	align-items: center;
+}
+.dark .project{ background-color: rgba(255,255,255, 0.1); }
+.light .project{ background-color: rgba(0,0,0, 0.1); }
+
+.project *{
+	background-color: transparent;
+}
+
+.project span:first-child{
+	font-size: larger;
+}
+.project span:nth-child(2){
+	font-size: small;
+	font-style: italic;
+}
+
+.project button{
+	border-radius: 20px;
+	height: 69%;
+	width: 100%;
+	border: 1px solid black;
+	color: white;
+}
+.project button:first-of-type{
+	background-color: rgba(0, 255, 0, 0.8);
+}
+.project button:first-of-type:hover{
+	background-color: rgba(0, 255, 0, 1);
+}
+.project button:last-of-type{
+	background-color: rgba(255, 0, 0, 0.8);
+}
+.project button:last-of-type:hover{
+	background-color: rgba(255, 0, 0, 1);
+}
+.project button:hover{
+	transform: scale(1.05);
+}
+
+
 #title_projects{
 	position: absolute;
 	top: 0;
@@ -360,7 +419,7 @@
 	transform: translate(-100%, -50%);
 	width: 250px;
 	height: 65%;
-	border-radius: 50px;
+	border-radius: 15px;
 }
 .dark #title_projects > button{
 	background-color: white;
