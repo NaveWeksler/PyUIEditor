@@ -24,16 +24,9 @@ def button_clicked():
 	button.width = random.randint(100, 200)
 	button.height = random.randint(40, 100)
 
-@button.on_down
-def button_down():
-	pass
-	#button.text_color = tuple((color + random.randint(-3, 3)) % 255 for color in button.text_color)
-
-@button.on_hover
-def button_hovered():
-	pass
-	#button.background_color = tuple((color + random.randint(-3, 3)) % 255 for color in button.background_color)
-	#button.hover_color = tuple((color + random.randint(-3, 3)) % 255 for color in button.hover_color)
+@input_box.on_click
+def input_box_clicked():
+	print(input_box.text)
 #####################################
 
 'game loop'
