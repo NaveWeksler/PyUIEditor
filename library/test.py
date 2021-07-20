@@ -26,12 +26,14 @@ def button_clicked():
 
 @button.on_down
 def button_down():
-	button.text_color = tuple((color + random.randint(-3, 3)) % 255 for color in button.text_color)
+	pass
+	#button.text_color = tuple((color + random.randint(-3, 3)) % 255 for color in button.text_color)
 
 @button.on_hover
 def button_hovered():
-	button.background_color = tuple((color + random.randint(-3, 3)) % 255 for color in button.background_color)
-	button.hover_color = tuple((color + random.randint(-3, 3)) % 255 for color in button.hover_color)
+	pass
+	#button.background_color = tuple((color + random.randint(-3, 3)) % 255 for color in button.background_color)
+	#button.hover_color = tuple((color + random.randint(-3, 3)) % 255 for color in button.hover_color)
 #####################################
 
 'game loop'

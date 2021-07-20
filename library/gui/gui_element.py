@@ -19,6 +19,7 @@ class GuiElement:
 			height,
 			background_color,
 			hover_color,
+			click_color,
 			border_width,
 			border_color
 		):
@@ -26,6 +27,7 @@ class GuiElement:
 		self._y = y
 		self._background_color = background_color
 		self._hover_color = hover_color
+		self._click_color = click_color
 		self._border_width = border_width
 		self._border_color = border_color
 		self._surface = pygame.Surface((width, height))
@@ -99,6 +101,17 @@ class GuiElement:
 	@hover_color.setter
 	def hover_color(self, value):
 		self._hover_color = value
+	#####################################
+
+	# click_color
+	#####################################
+	@property
+	def click_color(self):
+		return self._click_color
+	
+	@click_color.setter
+	def click_color(self, value):
+		self._click_color = value
 	#####################################
 
 	# border_width

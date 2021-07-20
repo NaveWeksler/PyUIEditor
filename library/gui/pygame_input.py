@@ -28,11 +28,16 @@ class Key:
 
 class KeysMeta(type):
 	_keys = {}
+	_text = ""
 
 	def __call__(cls, char):
 		if char in cls._keys:
 			return cls._keys[char]
 		return Key()
+
+	@property
+	def text(self):
+		return self._text
 
 # allows to access KeysMeta without any instance
 class Keys(metaclass=KeysMeta):
@@ -98,6 +103,7 @@ class Mouse(metaclass=MouseMeta):
 
 def handle_input(events):
 	# resets the keys 
+	Keys._text = ""
 	for _, key in Keys._keys.items():
 		key._pressed = False
 		key._released = False
@@ -127,8 +133,12 @@ def handle_input(events):
 				key._released = True
 				key._down = False
 
+		# text input
+		if hasattr(event, "text"):
+			Keys._text = event.text
+
 		# mouse input
-		elif hasattr(event, "button"):
+		if hasattr(event, "button"):
 			if event.type == pygame.MOUSEBUTTONDOWN:
 				if event.button == 1: # left pressed
 					Mouse._left._pressed = True

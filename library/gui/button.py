@@ -18,11 +18,12 @@ class Button(GuiElement, TextBlock):
 			font,
 			background_color,
 			hover_color,
+			click_color,
 			border_color,
 			border_width
 		):
 		TextBlock.__init__(self, text, text_size, text_color, font)
-		GuiElement.__init__(self, x, y, width, height, background_color, hover_color, border_width, border_color)
+		GuiElement.__init__(self, x, y, width, height, background_color, hover_color, click_color, border_width, border_color)
 
 	#########################
 	######## Methods ########
@@ -30,7 +31,7 @@ class Button(GuiElement, TextBlock):
 
 	def render(self, window):
 		# clears the surface
-		background_color = self.hover_color if self.hovered else self.background_color
+		background_color = self.click_color if self.down else self.hover_color if self.hovered else self.background_color
 		self.surface.fill(background_color)
 
 		# text

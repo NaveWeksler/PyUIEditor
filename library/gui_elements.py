@@ -10,7 +10,8 @@ button = gui.Button(
 	text_color=[20, 20, 20],
 	font="arial",
 	background_color=[200, 200, 200],
-	hover_color=[220, 220, 220],
+	hover_color=[210, 210, 210],
+	click_color=[180, 180, 180],
 	border_color=[[255, 0, 0], [0, 255, 0], [0, 0, 255], [255, 255, 0]],
 	border_width=[2, 2, 2, 2]
 )
