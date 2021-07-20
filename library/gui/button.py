@@ -23,35 +23,7 @@ class Button(GuiElement, TextBlock):
 		):
 		TextBlock.__init__(self, text, text_size, text_color, font)
 		GuiElement.__init__(self, x, y, width, height, background_color, hover_color, border_width, border_color)
-		self._surface = pygame.Surface((self.width, self.height))
 
-	############################
-	######## Properties ########
-	############################
-
-	# surface
-	#####################################
-	@property
-	def surface(self):
-		return self._surface
-	#####################################
-
-	# width override
-	#####################################
-	@GuiElement.width.setter
-	def width(self, value):
-		self._width = value
-		self._surface = pygame.transform.scale(self.surface, (self.width, self.height))
-	#####################################
-
-	# height override
-	#####################################
-	@GuiElement.height.setter
-	def height(self, value):
-		self._height = value
-		self._surface = pygame.transform.scale(self.surface, (self.width, self.height))
-	#####################################
-	
 	#########################
 	######## Methods ########
 	#########################
@@ -59,7 +31,7 @@ class Button(GuiElement, TextBlock):
 	def render(self, window):
 		# clears the surface
 		background_color = self.hover_color if self.hovered else self.background_color
-		self._surface.fill(background_color)
+		self.surface.fill(background_color)
 
 		# text
 		text_x = self.width / 2 - TextBlock.width.fget(self) / 2

@@ -24,12 +24,11 @@ class GuiElement:
 		):
 		self._x = x
 		self._y = y
-		self._width = width
-		self._height = height
 		self._background_color = background_color
 		self._hover_color = hover_color
 		self._border_width = border_width
 		self._border_color = border_color
+		self._surface = pygame.Surface((width, height))
 		all_elements.append(self)
 
 	############################
@@ -62,22 +61,22 @@ class GuiElement:
 	#####################################
 	@property
 	def width(self):
-		return self._width
+		return self.surface.get_width()
 
 	@width.setter
 	def width(self, value):
-		self._width = value
+		self._surface = pygame.transform.scale(self.surface, (value, self.height))
 	#####################################
 
 	# height
 	#####################################
 	@property
 	def height(self):
-		return self._height
+		return self.surface.get_height()
 
 	@height.setter
 	def height(self, value):
-		self._height = value
+		self._surface = pygame.transform.scale(self.surface, (self.width, value))
 	#####################################
 
 	# background_color
@@ -122,6 +121,13 @@ class GuiElement:
 	@border_color.setter
 	def border_color(self, value):
 		self._border_color = value
+	#####################################
+
+	# surface
+	#####################################
+	@property
+	def surface(self):
+		return self._surface
 	#####################################
 
 	# input
