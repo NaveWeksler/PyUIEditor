@@ -1,8 +1,3 @@
 website/test.html
-library/__pycache__/gui_elements.cpython-37.pyc
-library/gui/__pycache__/__init__.cpython-37.pyc
-library/gui/__pycache__/button.cpython-37.pyc
-library/gui/__pycache__/core.cpython-37.pyc
-library/gui/__pycache__/gui_element.cpython-37.pyc
-library/gui/__pycache__/pygame_input.cpython-37.pyc
-library/gui/__pycache__/text_block.cpython-37.pyc
+__pycache__/
+ *.pyc
