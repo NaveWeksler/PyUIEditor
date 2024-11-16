@@ -1,2 +1,2 @@
 # PyUIEditor
-Design Pygame UI
+Design Pygame UI (old, not complete)
